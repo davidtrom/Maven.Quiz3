@@ -1,8 +1,6 @@
 package rocks.zipcode.io.quiz3.fundamentals;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author leon on 09/12/2018.
@@ -24,21 +22,23 @@ public class StringUtils {
     }
 
     public static String[] getAllSubStrings(String string) {
-//        for (int i = 0; i < str.length(); i++) {
-//            for (int j = i+1; j <= str.length(); j++) {
-//                System.out.println(str.substring(i,j));
-//        char ch = characterToCheckFor.toLowerCase(characterToCheckFor);
-        return null;
+        // Put all distinct substring in a HashSet
+        Set<String> result = new HashSet<String>();
+
+        // List All Substrings
+        for (int i = 0; i <= string.length(); i++) {
+            for (int j = i + 1; j <= string.length(); j++) {
+
+                // Add each substring in Set
+                result.add(string.substring(i, j));
+            }
+        }
+        String [] toReturn = new String[result.size()];
+        // Return size of the HashSet
+        return result.toArray(toReturn);
     }
 
     public static Integer getNumberOfSubStrings(String input){
-
-
-        //        Integer sum = 0;
-//        String [] inputArray = input.split("");
-//        for (int i = 0; i < inputArray.length; i++){
-//            sum += inputArray[i] * (i + 1) * (inputArray.length - i);
-//        }
-        return null;
+        return getAllSubStrings(input).length;
     }
 }

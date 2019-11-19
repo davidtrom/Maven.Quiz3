@@ -9,33 +9,38 @@ public class TicTacToe {
     private String [][] board;
 
     public TicTacToe(String[][] board) {
+        this.board=board;
     }
 
     public TicTacToe() {
     }
 
     public String[] getRow(Integer value) {
-
-
-
-
-//        for (int i = 0; i <= 2; i++) {
-//            //if ((board[i][0] == xO) && (board[i][1] == xO) && (board[i][2] == xO)) {
-//                //return true;
-//            }
-//        }
-//        //return false;
-        return null;
+        String [] row = new String [3];
+        for (int i = 0; i <= 2; i++) {
+           row[i] = board[value][i];
+        }
+        return row;
     }
 
     public String[] getColumn(Integer value) {
-        return null;
+        String [] column = new String [3];
+        for (int i = 0; i <= 2; i++) {
+            column[i] = board[i][value];
+        }
+        return column;
     }
 
 
     public Boolean isRowHomogenous(Integer rowIndex) {
-
-        return true;
+        //for(int i = 0; i <= 2; i++){
+//            if (board[rowIndex][0].equals("X") && board[rowIndex][1] = "O"]);
+//            return true;
+//        }
+//
+//
+//        if (getRow(rowIndex).equals("X") || getRow(rowIndex.equals("O")))
+            return true;
     }
 
     public Boolean isColumnHomogeneous(Integer columnIndex) {

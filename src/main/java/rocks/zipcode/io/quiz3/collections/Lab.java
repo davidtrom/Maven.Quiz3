@@ -14,6 +14,7 @@ public class Lab {
 
     public Lab(String labName) {
         this.labName = labName;
+        //this.labStatus = LabStatus.PENDING;
     }
 
     public String getName() {
@@ -28,11 +29,4 @@ public class Lab {
         return this.labStatus;
     }
 
-    @Override
-    public String toString() {
-        return "Lab{" +
-                "labName='" + labName + '\'' +
-                ", labStatus=" + labStatus +
-                '}';
-    }
 }

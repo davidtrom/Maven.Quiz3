@@ -1,7 +1,9 @@
 package rocks.zipcode.io.quiz3.generics;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @author leon on 09/12/2018.
@@ -47,7 +49,7 @@ public class ArrayUtility<SomeType> {
     }
 
     public SomeType[] filter(Function<SomeType, Boolean> predicate) {
-
-        return null;
+        List myFilter = Arrays.stream(array).map(predicate).collect(Collectors.toList());
+        return (SomeType[]) myFilter.toArray(Arrays.copyOf(array,myFilter.size()));
     }
 }
