@@ -31,49 +31,38 @@ public class TicTacToe {
         return column;
     }
 
-
     public Boolean isRowHomogenous(Integer rowIndex) {
-        //for(int i = 0; i <= 2; i++){
-//            if (board[rowIndex][0].equals("X") && board[rowIndex][1] = "O"]);
-//            return true;
-//        }
-//
-//
-//        if (getRow(rowIndex).equals("X") || getRow(rowIndex.equals("O")))
-            return true;
-    }
 
+       if (board [rowIndex][0].equals("X") && board [rowIndex][1].equals("X") && board[rowIndex][2].equals("X")){
+           return true;
+       }
+       else if (board [rowIndex][0].equals("O") && board [rowIndex][1].equals("O") && board[rowIndex][2].equals("O")){
+            return true;
+        }
+       return false;
+
+//        if (getRow(rowIndex)[0].equals("X") && getRow(rowIndex)[1].equals("X") && getRow(rowIndex)[2].equals("X")) {
+//            return true;
+        //  THIS ABOVE ALSO WORKS
+
+    }
     public Boolean isColumnHomogeneous(Integer columnIndex) {
-        return null;
+        if (board [0][columnIndex].equals("X") && board [1][columnIndex].equals("X") && board[2][columnIndex].equals("X")){
+            return true;
+        }
+        else if (board [0][columnIndex].equals("O") && board [1][columnIndex].equals("O") && board[2][columnIndex].equals("O")){
+            return true;
+        }
+        return false;
     }
 
     public String getWinner() {
+
+
         return null;
     }
 
     public String[][] getBoard() {
         return this.board;
     }
-
-
-//    public Boolean checkHorizontal(Character xO) {
-//        for (int i = 0; i <= 2; i++) {
-//            if ((board[i][0] == xO) && (board[i][1] == xO) && (board[i][2] == xO)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
-//    public Boolean checkVertical(Character xO)
-//    {
-//        for (int i = 0; i<=2; i++)
-//        {
-//            if ((board [0][i] == xO) && (board[1][i] == xO) && (board[2][i] == xO))
-//            {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 }

@@ -14,7 +14,7 @@ public class Lab {
 
     public Lab(String labName) {
         this.labName = labName;
-        //this.labStatus = LabStatus.PENDING;
+        //this.labStatus = LabStatus.PENDING;  THIS COULD BE SET TO PENDING IN THE CONSTRUCTOR
     }
 
     public String getName() {

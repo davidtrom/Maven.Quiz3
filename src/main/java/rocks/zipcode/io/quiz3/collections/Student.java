@@ -30,7 +30,8 @@ public class Student {
 
     public void setLabStatus(String labName, LabStatus labStatus) {
        try {
-           getLab(labName).setStatus(labStatus);}
+           Lab foundLab = getLab(labName);
+           foundLab.setStatus(labStatus);}
        catch (Exception e){
            throw new UnsupportedOperationException(e);
        }
@@ -51,9 +52,11 @@ public class Student {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < labs.size(); i++) {
-        // for(int i = labs.size() - 1; i >= 0; i--) {
-            sb.append(String.format("%s > %s \n", labs.get(i).getName(), labs.get(i).getStatus()));
+        for(int i = labs.size() -1; i >= 0; i--) {
+            sb.append(String.format("%s > ", labs.get(i).getName()));
+            for(int j = 0; j < labs.size() ; j++) {
+                sb.append(String.format("%s\n", labs.get(j).getStatus()));
+            }
         }
          return sb.toString();
     }

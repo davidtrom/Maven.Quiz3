@@ -17,30 +17,35 @@ public class ArrayUtility<SomeType> {
 
     public SomeType findOddOccurringValue() {
 
-        for (int i = 0; i < array.length; i++) {
-            int count = 0;
-            for (int j = 0; j < array.length; j++) {
-                if (array[i] == array[j])
-                    count++;
-            }
-            if (count % 2 != 0)
-                return array[i];
-        }
-        return null;
+        return Arrays.stream(array).filter(x -> getNumberOfOccurrences(x) % 2 == 1).findFirst().get();
+
+//        for (int i = 0; i < array.length; i++) {
+//            int count = 0;
+//            for (int j = 0; j < array.length; j++) {
+//                if (array[i] == array[j])
+//                    count++;
+//            }
+//            if (count % 2 != 0)
+//                return array[i];
+//        }
+//        return null;
     }
 
 
+
     public SomeType findEvenOccurringValue() {
-        for (int i = 0; i < array.length; i++) {
-            int count = 0;
-            for (int j = 0; j < array.length; j++) {
-                if (array[i] == array[j])
-                    count++;
-            }
-            if (count % 2 == 0)
-                return array[i];
-        }
-        return null;
+        return Arrays.stream(array).filter(x -> getNumberOfOccurrences(x) % 2 == 0).findFirst().get();
+
+//        for (int i = 0; i < array.length; i++) {
+//            int count = 0;
+//            for (int j = 0; j < array.length; j++) {
+//                if (array[i] == array[j])
+//                    count++;
+//            }
+//            if (count % 2 == 0)
+//                return array[i];
+//        }
+//        return null;
     }
 
     public Integer getNumberOfOccurrences(SomeType valueToEvaluate) {
@@ -49,7 +54,12 @@ public class ArrayUtility<SomeType> {
     }
 
     public SomeType[] filter(Function<SomeType, Boolean> predicate) {
-        List myFilter = Arrays.stream(array).map(predicate).collect(Collectors.toList());
-        return (SomeType[]) myFilter.toArray(Arrays.copyOf(array,myFilter.size()));
+       Object [] filtered = Arrays.stream(array)
+                .filter(predicate::apply).toArray();        //Save results to an object array since highest class and filter the results by applying the given predicate
+       SomeType [] target = Arrays.copyOf(array, filtered.length);  //create an array of SomeType that copies over the original array and is the length of the filtered one
+       for( int i = 0; i < filtered.length; i++){   //We have to loop through and put the values from our object array into our filtered array being cast to SomeType.
+           target [i] = (SomeType) filtered [i];
+       }
+       return target;
     }
 }

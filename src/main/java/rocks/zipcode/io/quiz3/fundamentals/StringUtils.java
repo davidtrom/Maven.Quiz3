@@ -14,11 +14,7 @@ public class StringUtils {
     }
 
     public static Boolean isCharacterAtIndex(String baseString, Character characterToCheckFor, Integer indexOfString) {
-        char ch = characterToCheckFor.toLowerCase(characterToCheckFor);
-        if(baseString.toLowerCase().indexOf(indexOfString)==(ch)) {
-            return true;
-        }
-        return false;
+        return baseString.charAt(indexOfString)==(characterToCheckFor);
     }
 
     public static String[] getAllSubStrings(String string) {

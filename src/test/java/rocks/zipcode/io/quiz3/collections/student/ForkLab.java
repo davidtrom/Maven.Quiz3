@@ -29,9 +29,9 @@ public class ForkLab {
     @Test
     public void test2() {
         // given
-        Lab lab = new Lab("learner lab");
-        Student student = new Student();
-        LabStatus expected = LabStatus.valueOf("PENDING");
+        Lab lab = new Lab("learner lab");   //Creating a new lab with a name of "learner lab"
+        Student student = new Student();            //creates a new student object
+        LabStatus expected = LabStatus.valueOf("PENDING");  //the
 
         // when
         student.forkLab(lab);
