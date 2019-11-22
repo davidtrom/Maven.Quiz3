@@ -14,16 +14,17 @@ public class Student {
 
     public Student() {
         this(new ArrayList<>());
-    }
+    }  //no labs were given as a parameter so we just instantiate a new blank arrayList
 
     public Student(List<Lab> labs) {
-        this.labs = new ArrayList<>();
-    }
+        this.labs =labs;
+    } //given the labs in parameter needs to set this equal to that.
 
     public Lab getLab(String labName) {
         for (int i = 0; i < labs.size(); i++) {
-             if( labs.get(i).getName().equals(labName));
-             return labs.get(i);
+            if (labs.get(i).getName().equals(labName)) {
+                return labs.get(i);
+            }
         }
         return null;
     }
@@ -49,15 +50,18 @@ public class Student {
         return getLab(labName).getStatus();
     }
 
-    @Override
+    @Override       // you can print the lab name and status via labs.get(i).getName() or .getStatus() in a loop.  Since we defined
+    // the toString in the lab status we can also just do a print out of the lab object itself.
     public String toString() {
+        String result = "";
         StringBuilder sb = new StringBuilder();
         for(int i = labs.size() -1; i >= 0; i--) {
-            sb.append(String.format("%s > ", labs.get(i).getName()));
-            for(int j = 0; j < labs.size() ; j++) {
-                sb.append(String.format("%s\n", labs.get(j).getStatus()));
+            if (i == 0) {
+                result += labs.get(i).toString();
+            }
+            else { result += labs.get(i).toString() + '\n';
             }
         }
-         return sb.toString();
+        return result;
     }
 }

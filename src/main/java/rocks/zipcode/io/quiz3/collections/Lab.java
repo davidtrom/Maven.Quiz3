@@ -14,7 +14,7 @@ public class Lab {
 
     public Lab(String labName) {
         this.labName = labName;
-        //this.labStatus = LabStatus.PENDING;  THIS COULD BE SET TO PENDING IN THE CONSTRUCTOR
+        this.labStatus = LabStatus.PENDING;
     }
 
     public String getName() {
@@ -29,4 +29,8 @@ public class Lab {
         return this.labStatus;
     }
 
+    @Override //this toString() prints the name of the lab and it's labstatus.
+    public String toString() {
+        return String.format("%s > %s",labName , labStatus);
+    }
 }
